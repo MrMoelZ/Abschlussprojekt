@@ -1,0 +1,72 @@
+.card-content {
+    min-width:60%;
+}
+
+.card-image {
+    min-width: 40%;
+}
+
+.resImage {
+    max-height:350px;
+    position:absolute;
+    margin:auto;
+
+}
+
+.imagecontainer {
+    width: 100%;
+    position:relative;
+    background-color: #f7f7f7;
+}
+
+.detail {
+    margin-top: 20px;
+}
+
+.cardtitle {
+    text-align:center;
+    font-size: 15pt;
+    color: grey;
+    width:100%;
+}
+
+.login {
+    @rbord: 50px;
+    @col: lightgrey;
+    width: 30%;
+    border: solid 2px @col;
+    border-radius: @rbord;
+    -moz-border-radius: @rbord;
+    -webkit-border-radius: @rbord;
+    background-color: @col;
+    
+}
+
+.login input {
+    margin-left: 15%;
+    margin-right: 15%;
+    width:70%;
+}
+
+.login button {
+    margin-bottom:5%;
+    
+}
+
+@placeholder-color: darkslategray;
+
+::-webkit-input-placeholder {
+   color: @placeholder-color;
+}
+
+:-moz-placeholder { 
+   color: @placeholder-color;  
+}
+
+::-moz-placeholder {  
+   color: @placeholder-color;  
+}
+
+:-ms-input-placeholder {  
+   color: @placeholder-color;  
+}

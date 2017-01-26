@@ -1,0 +1,55 @@
+h1 {
+    color:#369;
+    font-family: UniversLt, Arial, Helvetica, sans-serif;
+    font-size: 200%;
+    text-align:center;
+}
+
+.logo {
+    position:absolute;
+    right:20px;
+    height:120px;
+    opacity:0.2;
+}
+
+nav {
+    text-align:center;
+}
+
+nav a {
+    margin-left: 10px;
+}
+
+h2,h3 {
+    color: #444;
+    font-family: UniversLt, Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+body {
+    margin: 2em;
+    font-family: UniversLt, Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+    font-family: UniversLt;
+    src: url("assets/lte50144.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: UniversLt;
+    src: url("assets/lte50148.ttf") format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: UniversLt;
+    src: url("assets/lte50145.ttf") format('truetype');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: UniversLt;
+    src: url("assets/lte50149.ttf") format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}

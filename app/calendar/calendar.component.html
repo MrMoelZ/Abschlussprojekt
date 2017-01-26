@@ -1,0 +1,24 @@
+<div class="calendar">
+    <div class="center-align noselect">
+        <i (click)="click(-1)" class="clickable md-18 material-icons arrows">keyboard_arrow_left</i>
+        <span class="weekyear noselect" *ngIf="current.year()!=today.year()">{{current.format('YYYY')}}</span><span class="weekyear noselect"> KW {{current.week()}}</span>
+        <i (click)="click(1)" class="clickable md-18 material-icons arrows">keyboard_arrow_right</i>
+    </div>
+    <div *ngFor="let d of week" 
+        [class.holiday]="d.isHoliday" 
+        [class.weekend]="d.date.day() == 6 || d.date.day()==0" 
+        [class.past]="d.date.isBefore(startOfToday)"
+        [class.today]="d.date.isSame(today,'day')" 
+        class="calendarDay noselect">
+        <span class="calendarDayHeading noselect">{{d.date.format('dd DD.MM.')}}</span>
+        <div *ngFor="let hour of d.hours" class="hour">
+            <span class="noselect">{{hour.hour}}</span>
+            <div *ngFor="let t of hour.ticks" 
+                class="clickable quarter" 
+                [class.occupied]="d.getOccupied(t) && d.getPersons(t)==-1"
+                (click)="select(t.hour(),t.minutes(),d.date)"
+                #me>
+            </div>
+        </div>
+    </div>
+</div>

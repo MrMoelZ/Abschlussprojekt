@@ -1,0 +1,60 @@
+<div class="this" [class.flash]="flash">
+    <form>
+        <div class="roomname">
+            <h3 *ngIf="ressource">{{ressource.name}}</h3>
+        </div>
+
+        <div class="personCount">
+            <div>
+                <input type="checkbox" id="cb" name="wholeRoom" [(ngModel)]="wholeRoom" class="form-control">
+                <label for="cb">Ganzen Raum buchen</label>
+            </div>
+            <div>
+                <label for="persons" class="personCountLabel"  [class.disabled]="wholeRoom">Anzahl Personen</label>
+                <input [disabled]="wholeRoom" type="number" name="persons" id="persons" [(ngModel)]="persons">
+            </div>
+        </div>
+
+
+        <div class="fromTo">
+            <div>
+                <div class="timeInput">
+                    <input type="text" name="start" #start (blur)="validateKBInput(start)" [value]="Start" />
+                    <div class="hourinput noselect">
+                        <i class="material-icons md-12" id="startu" #startu (click)="editHour(startu)">arrow_drop_up</i>
+                        <i class="material-icons md-12" id="startd" #startd (click)="editHour(startd)">arrow_drop_down</i>
+                    </div>
+                </div>
+                <div class="dateInput">
+                    <input type="text" name="startdate" [(ngModel)]="StartDate" onkeydown="return false">
+                </div>
+                <label>Von: </label>
+            </div>
+
+            <div>
+                <div class="timeInput">
+                    <input type="text" name="end" #end (blur)="validateKBInput(end)" [value]="End" />
+                    <div class="hourinput noselect">
+                        <i class="material-icons md-18" id="endu" #endu (click)="editHour(endu)">arrow_drop_up</i>
+                        <i class="material-icons md-18" id="endd" #endd (click)="editHour(endd)">arrow_drop_down</i>
+                    </div>
+                </div>
+                <div class="dateInput">
+                    <input type="text" name="enddate" [(ngModel)]="EndDate" onkeydown="return false" />
+                </div>
+                <label>Bis: </label>
+            </div>
+        </div>
+
+        <div [hidden]="!showError">
+            <div class="chip errormsg">
+                {{errormsg}}
+                <i (click)="showError=false" class="material-icons tiny">close</i>
+            </div>
+        </div>
+
+        <button class="btn left" (click)="onCancel()">abbrechen</button>
+        <button class="btn right" type="submit" (click)="onSubmit()">buchen</button>
+    </form>
+    <div class="clearfix"></div> 
+</div>

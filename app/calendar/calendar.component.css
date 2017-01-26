@@ -1,0 +1,90 @@
+.calendar {
+  width: 100%;
+}
+.calendarDay {
+  width: 14.28571429%;
+  border: 2px solid black;
+  float: left;
+  background-color: #33ad41;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  pointer-events: none;
+}
+.noselect.clickable,
+.clickable {
+  cursor: pointer;
+  pointer-events: all;
+}
+.arrows {
+  line-height: 40px;
+}
+.weekyear {
+  vertical-align: super;
+}
+.weekend.past,
+.holiday.past,
+.past {
+  border: 2px solid grey;
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+}
+.weekend.past .quarter:hover,
+.holiday.past .quarter:hover,
+.past .quarter:hover {
+  background-color: #bababa;
+}
+.weekend.past .quarter:hover.occupied:hover,
+.holiday.past .quarter:hover.occupied:hover,
+.past .quarter:hover.occupied:hover {
+  background-color: #c94242;
+}
+.weekend {
+  background-color: #eee8aa;
+}
+.weekend .quarter:hover {
+  background-color: #e5dc80;
+}
+.holiday {
+  background-color: goldenrod;
+}
+.today {
+  border: 2px solid blue;
+}
+.calendarDayHeading {
+  text-align: center;
+  font-weight: bold;
+}
+.occupied {
+  background-color: #d46a6a;
+}
+.partiallyOccupied,
+.partiallyOccupied.occupied {
+  background-color: darkorange;
+}
+.hour {
+  min-height: 25px;
+  position: relative;
+}
+.hour > span {
+  position: absolute;
+  left: 0;
+}
+.quarter {
+  width: 25%;
+  height: 100%;
+  float: left;
+  min-height: 25px;
+}
+.quarter:hover {
+  background-color: #278632;
+}
+.quarter.occupied:hover {
+  background-color: #c94242;
+}

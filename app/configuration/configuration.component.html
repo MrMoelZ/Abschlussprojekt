@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <div *ngFor="let o of options" id="o.id" name="o.id" class="optionsitem clickable" (click)="showOption(o.id)">
+            <i class="material-icons md-24 clickable">{{o.icon}} </i><span> {{o.text}}</span>
+        </div>
+    </div>
+    <div class="row box time" #time id="time" [hidden]="!getShow(time.id)">
+        <i class="material-icons tiny clickable remove" (click)="hideOption(time)">close</i>
+        <h2>Geschäftszeiten</h2>
+        <div class="officeTimes">
+            <div><input type="number" id="from" min=0 [max]="officeHoursEnd-1" [(ngModel)]="officeHoursStart"><label for="from"> Von</label></div>
+            <div><input type="number" id="to" [min]="officeHoursStart+1" max=24 [(ngModel)]="officeHoursEnd"><label for="to"> Bis</label></div>
+        </div>
+        <button type="submit" class="btn btn-default" (click)="onOfficeTimes()">OK</button>
+    </div>
+
+    <div class="row box res_mod" #res_mod id="res_mod" [hidden]="!getShow(res_mod.id)">
+        <i class="material-icons tiny clickable remove" (click)="hideOption(res_mod)">close</i>
+        <h2>Ressourcen bearbeiten</h2>
+        <div *ngFor="let r of ressources">
+            <div class="ressource clickable" (click)="modifiyRes(r.name)">{{r.name}}</div>
+        </div>
+    </div>
+
+    <div [hidden]="modifyHidden">
+        <!--TODO-->
+    </div>
+
+
+    <div class="row box res" #res id="res" [hidden]="!getShow(res.id)">
+        <i class="material-icons tiny clickable remove" (click)="hideOption(res)">close</i>
+        <h2>Neue Ressource</h2>
+        <form (ngSubmit)="onSubmit()" id="resform" #Form="ngForm">
+            <div class="form-group">
+                <label for="name">Name</label><br/>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="ressource.name"><br/>
+            </div>
+            <div class="form-group">
+                <label for="description">Beschreibung</label><br/>
+                <textarea class="form-control" id="description" rows="5" name="description" [(ngModel)]="ressource.description"></textarea><br/>
+            </div>
+            <div class="form-group">
+                <label for="imgUrl">Bildpfad</label><br/>
+                <input type="text" class="form-control" id="imgUrl" name="imgUrl" [(ngModel)]="ressource.imgUrl"><br/>
+            </div>
+            <div class="form-group">
+                <label for="cbisRoom">Meetingraum</label><br/>
+                <div class="switch">
+                    <label>
+                        Nein
+                        <input type="checkbox" class="form-control" id="cbisRoom" name="isRoom" [(ngModel)]="ressource.isRoom">
+                        <span class="lever"></span>
+                        Ja
+                    </label>
+                </div>
+            </div>
+            <div class="form-group data">
+                <label for="data">Ausstatttung / weitere Infos</label>
+                <ul id="data" name="data">
+                    <li *ngFor="let d of ressource.data">{{d}}<i class="material-icons tiny clickable" (click)="removeData(d)">close</i></li>
+                </ul>
+                <input type="text" class="form-control" #newData name="newData" id="newData" [hidden]="!showAddData" (blur)="addData(newData)">
+                <i class="material-icons tiny clickable" [hidden]="!showAddData">done</i>
+                <span class="clickable" (click)="showAddData=true" [hidden]="showAddData"><i class="material-icons tiny clickable">add</i> neu</span>
+            </div>
+            <button type="submit" class="btn btn-default">OK</button>
+        </form>
+    </div>
+</div>

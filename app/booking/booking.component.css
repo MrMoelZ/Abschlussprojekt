@@ -1,0 +1,112 @@
+label {
+  color: black;
+}
+.fromTo,
+.personCount {
+  cursor: pointer;
+}
+.errormsg {
+  background-color: #FA402F;
+  font-weight: bold;
+  cursor: pointer;
+}
+.infomsg {
+  background-color: green;
+  font-weight: bold;
+  cursor: pointer;
+}
+form {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.disabled {
+  color: lightgrey;
+}
+.personCount {
+  width: 50%;
+  float: left;
+}
+.personCount label {
+  float: left;
+}
+.personCount > div {
+  width: 50%;
+  float: left;
+}
+.personCount input {
+  width: 60%;
+}
+.personCountLabel {
+  width: 40%;
+}
+.fromTo {
+  width: 50%;
+  float: left;
+}
+.fromTo > div {
+  width: 50%;
+  float: left;
+}
+.fromTo label {
+  float: right;
+}
+.dateInput {
+  width: 30%;
+  float: right;
+}
+.timeInput {
+  width: 30%;
+  float: right;
+}
+.timeInput > input {
+  float: left;
+  width: 80%;
+}
+.timeInput .hourinput {
+  width: 20%;
+  float: left;
+  line-height: 0.3;
+}
+.btn.left {
+  float: left;
+}
+.btn.right {
+  float: right;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+@-webkit-keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.flash {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: flash;
+  animation-name: flash;
+}

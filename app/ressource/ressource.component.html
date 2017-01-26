@@ -1,0 +1,39 @@
+<div class="prelogin" [hidden]="authenticated">
+    <div class="container center">
+        <h2>Bitte loggen Sie sich ein!</h2>
+    </div>
+    <div class="login center container">
+        <h3>LOGIN</h3>
+        <div class="auth">
+            <input type="text" placeholder="Benutzername" id="username" [(ngModel)]="username">
+            <input type="password" placeholder="Passwort" id="password" [(ngModel)]="pw">
+            <button class="btn" (click)="authenticate()">Login</button>
+        </div>
+    </div>
+</div>
+<div class="row" [hidden]="!authenticated">
+    <div class="col s7 offset-s2 section scrollspy" *ngFor="let ressource of ressources" id="{{ressource.name}}">
+        <div [hidden]="!getShowBooking(ressource.id)" id="booking_{{ressource.id}}">
+            <booking [ressource]="ressource" [end]="end" [start]="start" (hide)="handleHide()"></booking>
+        </div>
+        <div class="card horizontal">
+            <div class="card-image">
+                <div class="col imagecontainer">
+                    <img class="resImage" src="{{ressource.imgUrl}}">
+                </div>
+                <div class="col cardtitle">{{ressource.name}}</div>
+                <div class="col s6 black-text detail" *ngFor="let detail of ressource.data">{{detail}}</div>
+            </div>
+            <div class="card-content">
+                <p>{{ressource.description}}</p>
+                <div class="divider"></div>
+                <calendar [ressource]="ressource" (selected)="handleSelected($event)" (click)="scrollTo(ressource.id)"></calendar>
+            </div>
+        </div>
+    </div>
+    <div class="col s2 offset-s10 pinned">
+        <ul class="section table-of-contents" *ngFor="let ressource of ressources">
+            <li><a href="#{{ressource.name}}"><i class="material-icons tiny">bookmark</i> {{ressource.name}}</a></li>
+        </ul>
+    </div>
+</div>

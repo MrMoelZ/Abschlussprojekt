@@ -1,0 +1,118 @@
+
+@bgcol:#33AD41;
+@bgcolocc:#D46A6A;
+@bgcolwe:#EEE8AA;
+@bgcolpa:#D3D3D3;
+
+
+.calendar {
+    width:100%;
+}
+
+
+.calendarDay {
+    width:100%*(1/7);
+    border: 2px solid black;
+    float:left;
+    background-color:@bgcol;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    cursor:default;
+    pointer-events:none;
+}
+
+
+.noselect.clickable,
+.clickable {
+    cursor:pointer;
+    pointer-events:all;
+}
+
+.arrows {
+    line-height: 40px;
+}
+
+.weekyear {
+    vertical-align: super;
+}
+
+
+.weekend.past,
+.holiday.past,
+.past {
+    border: 2px solid grey;
+    background-color: @bgcolpa;
+    cursor: not-allowed;
+    .quarter:hover {
+        background-color: darken(@bgcolpa,10%);
+        &.occupied {
+            &:hover{
+             background-color: darken(@bgcolocc,10%);
+            }
+        }   
+    }
+}
+
+.weekend {
+    background-color:@bgcolwe ;
+    .quarter:hover {
+        background-color: darken(@bgcolwe,10%);
+    }
+}
+
+.holiday {
+    background-color:goldenrod;
+}
+
+.today {
+    border: 2px solid blue;
+}
+
+.calendarDayHeading{
+    text-align: center;
+    font-weight: bold;
+}
+
+.occupied {
+    background-color: @bgcolocc;            
+}
+
+.partiallyOccupied,
+.partiallyOccupied.occupied {
+    background-color: darkorange;
+}
+
+.hour {
+    min-height:25px;
+    position: relative;
+}
+
+.hour > span {
+    position: absolute;
+    left: 0;
+}
+
+.quarter {
+    width: 25%;
+    height: 100%;
+    float:left;
+    min-height:25px;
+    &:hover{
+        background-color: darken(@bgcol,10%,relative);
+    }
+    &.occupied {
+        &:hover{
+            background-color: darken(@bgcolocc,10%);
+        }
+    }
+}
+
+
+
