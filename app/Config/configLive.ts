@@ -1,9 +1,11 @@
 import {Moment} from 'moment/moment';
+import {Http, Headers} from '@angular/http';
 declare var moment;
 
 export class Config{
 
-    public static BaseUrl:string = "http://api.tocc.dirs21.de";
+    public static BaseUrl:string = "https://api.tocc.dirs21.de";
+    public static Headers: Headers = new Headers({"access_token":"z7zUon/QfE6UBXeGTKMauQ=="});
     public static OfficeHoursStart: Moment = moment("6:00","HH:mm");
     public static OfficeHoursEnd: Moment = moment("20:00","HH:mm");
 

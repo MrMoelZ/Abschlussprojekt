@@ -3,7 +3,7 @@ declare var moment;
 
 export class Config{
 
-    public static BaseUrl:string = "http://api.tocc.dirs21.local";
+    public static BaseUrl:string = "";
     public static OfficeHoursStart: Moment = moment("6:00","HH:mm");
     public static OfficeHoursEnd: Moment = moment("20:00","HH:mm");
 

@@ -11,7 +11,7 @@ var Config = (function () {
         }
         return officeHours;
     };
-    Config.BaseUrl = "http://api.tocc.dirs21.local";
+    Config.BaseUrl = "";
     Config.OfficeHoursStart = moment("6:00", "HH:mm");
     Config.OfficeHoursEnd = moment("20:00", "HH:mm");
     return Config;

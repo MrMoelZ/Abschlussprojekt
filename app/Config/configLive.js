@@ -1,4 +1,5 @@
 "use strict";
+var http_1 = require('@angular/http');
 var Config = (function () {
     function Config() {
     }
@@ -11,7 +12,8 @@ var Config = (function () {
         }
         return officeHours;
     };
-    Config.BaseUrl = "http://api.tocc.dirs21.de";
+    Config.BaseUrl = "https://api.tocc.dirs21.de";
+    Config.Headers = new http_1.Headers({ "access_token": "z7zUon/QfE6UBXeGTKMauQ==" });
     Config.OfficeHoursStart = moment("6:00", "HH:mm");
     Config.OfficeHoursEnd = moment("20:00", "HH:mm");
     return Config;

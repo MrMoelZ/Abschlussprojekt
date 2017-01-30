@@ -24,8 +24,10 @@ var AuthService = (function () {
             this.isAuthenticated.emit(username);
         }
         else {
+            var headers = new http_1.Headers();
+            headers.append("access_token", "Gax7eHqIQ0qbSOFfSNkgEw==");
             var ret = this.http.
-                post(config_1.Config.BaseUrl + '/v1/auth/login', { Login: username, Password: password })
+                post(config_1.Config.BaseUrl + '/v1/auth/login', { Login: username, Password: password }, { headers: headers })
                 .map(function (res) { return res.json(); })
                 .catch(function (res) { return Rx_1.Observable.throw(res.Meta.json().Message); });
             ret.subscribe(function (res) {

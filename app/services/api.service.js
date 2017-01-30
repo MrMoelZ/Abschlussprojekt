@@ -16,16 +16,27 @@ var ApiService = (function () {
     function ApiService(http) {
         this.http = http;
         this.baseUrl = config_1.Config.BaseUrl + '/v1/data';
+        this.headers = config_1.Config.Headers;
     }
-    ApiService.prototype.Get = function (command) {
+    ApiService.prototype.Get = function (command, headers) {
+        if (!headers)
+            headers = this.headers;
+        if (!headers.get("access_token"))
+            headers.append("access_token", "Gax7eHqIQ0qbSOFfSNkgEw==");
+        // headers.append("access_token","Gax7eHqIQ0qbSOFfSNkgEw==");
+        console.log('in get', headers.get("access_token"));
         return this.http
-            .get(this.baseUrl + command)
+            .get(this.baseUrl + command, { headers: headers })
             .map(function (res) { return res.json(); })
             .catch(function (res) { return Rx_1.Observable.throw(res.Meta.json().Message); });
     };
-    ApiService.prototype.Post = function (command, data) {
+    ApiService.prototype.Post = function (command, data, headers) {
+        if (!headers)
+            headers = this.headers;
+        //headers.append("access_token","Gax7eHqIQ0qbSOFfSNkgEw==");
+        console.log('inpost', headers.getAll("access_token"));
         return this.http
-            .post(this.baseUrl + command, data)
+            .post(this.baseUrl + command, data, { headers: headers })
             .map(function (res) { return res.json(); })
             .catch(function (error) { return Rx_1.Observable.throw(error.json().error); });
     };
